@@ -31,7 +31,7 @@ To use this code, follow these steps:
 1. Clone the repository to your local machine:
 
    ```
-   git clone https://github.com/your-username/2d-fft-implementation.git
+   git clone https://github.com/MohammadrezaChv/2D_Colorful_FFT.git
    ```
 
 2. Navigate to the project directory:
