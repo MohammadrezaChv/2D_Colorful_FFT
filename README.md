@@ -1,83 +1,104 @@
-# 2D FFT and IFFT for Image Processing
+```markdown
+# 2D Fast Fourier Transform (FFT) and Inverse Fast Fourier Transform (IFFT)
 
-This Jupyter Notebook provides an implementation of the Fast Fourier Transform (FFT) and Inverse Fast Fourier Transform (IFFT) for 2D image processing. The code utilizes the `numpy` and `cv2` libraries for numerical computations and image handling.
+This repository provides an implementation of the 2D FFT and IFFT algorithms for image processing. The code is implemented in Python and utilizes the NumPy library for efficient numerical computations.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Example](#example)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Introduction
+
+The 2D FFT and IFFT algorithms are fundamental tools in signal processing and are widely used in various applications, including image processing, audio processing, and data compression. This code provides an implementation of these algorithms specifically for image processing tasks.
 
 ## Prerequisites
 
-To run this code, you need the following libraries installed in your Python environment:
-- `numpy`
-- `opencv-python` (cv2)
+Before using this code, ensure that you have the following dependencies installed:
 
-You can install these libraries using the following command:
+- Python 3.x
+- NumPy
 
-pip install numpy opencv-python
+## Installation
 
+To use this code, follow these steps:
 
-## Code Description
+1. Clone the repository to your local machine:
 
-The code consists of the following functions:
+   ```
+   git clone https://github.com/your-username/2d-fft-implementation.git
+   ```
 
-### 1. `fft2D(image)`
+2. Navigate to the project directory:
 
-This function performs a 2D FFT on an input image. It takes an image as input and returns the FFT result as an array of complex numbers.
+   ```
+   cd 2d-fft-implementation
+   ```
 
-### 2. `fft2D_single_channel(channel)`
+3. Install the required dependencies using pip:
 
-This function performs a 2D FFT on a single color channel of an image. It takes a single-channel image (e.g., grayscale) as input and returns the FFT result for that channel as an array of complex numbers.
+   ```
+   pip install -r requirements.txt
+   ```
 
-### 3. `ifft2D(image_fft)`
+## Usage
 
-This function performs a 2D Inverse FFT (IFFT) on an input image in the frequency domain (FFT representation). It takes an image in the frequency domain as input and returns the reconstructed image as an array of complex numbers.
+To use the 2D FFT and IFFT code, follow these steps:
 
-### 4. `ifft2D_single_channel(channel_fft)`
+1. Import the required modules:
 
-This function performs a 2D IFFT on a single color channel of an image in the frequency domain. It takes a single-channel image in the frequency domain as input and returns the reconstructed channel as an array of complex numbers.
+   ```python
+   import numpy as np
+   import cv2
+   ```
 
-### 5. `fft(x)`
+2. Define the functions `fft2D`, `fft2D_single_channel`, `ifft2D`, `ifft2D_single_channel`, `fft`, and `ifft` in your script. These functions are provided in the code snippet you shared.
 
-This function implements the 1D FFT using the Cooley-Tukey algorithm. It performs a 1D FFT on an input array `x` and returns the FFT result as an array of complex numbers.
+3. Load the input image using `cv2.imread()`:
 
-### 6. `ifft(x)`
+   ```python
+   image = cv2.imread('input.jpg')
+   ```
 
-This function implements the 1D IFFT using the Cooley-Tukey algorithm. It performs a 1D IFFT on an input array `x` and returns the IFFT result as an array of complex numbers.
+4. Perform the 2D FFT on the image using the `fft2D` function:
 
-## Example Usage
+   ```python
+   fft_result = fft2D(image)
+   ```
 
-Here's an example of how to use the provided functions to perform 2D FFT and IFFT on an image:
+5. Perform the 2D IFFT on the FFT result using the `ifft2D` function:
 
-```python
-import numpy as np
-import cv2
+   ```python
+   reconstructed_image = ifft2D(fft_result)
+   reconstructed_image = np.real(reconstructed_image)
+   ```
 
-# Load the image
-image = cv2.imread('input.jpg')
+6. Scale the pixel values of the reconstructed image to the range of 0-255:
 
-# Perform 2D FFT
-fft_result = fft2D(image)
+   ```python
+   reconstructed_image = (reconstructed_image - np.min(reconstructed_image)) * (255 / np.max(reconstructed_image))
+   reconstructed_image = reconstructed_image.astype(np.uint8)
+   ```
 
-# Perform 2D IFFT
-reconstructed_image = ifft2D(fft_result)
-reconstructed_image = np.real(reconstructed_image)
+7. Save or display the input and reconstructed images using `cv2.imwrite()` or `cv2.imshow()`.
 
-# Scale the pixel values to the range of 0-255
-reconstructed_image = (reconstructed_image - np.min(reconstructed_image)) * (255 / np.max(reconstructed_image))
-reconstructed_image = reconstructed_image.astype(np.uint8)
+For more advanced usage and customization, you can explore additional image processing operations using the FFT and IFFT results.
 
-# Display the images
-cv2.imshow("Original Image", image)
-cv2.imshow("Reconstructed Image", reconstructed_image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+## Example
 
-In this example, we first load an input image using cv2.imread(). Then, we apply the fft2D() function to perform a 2D FFT on the image. Afterward, the ifft2D() function is used to perform a 2D IFFT to reconstruct the image. Finally, we scale the pixel values and display both the original and reconstructed images using cv2.imshow().
+For a detailed example of using the 2D FFT and IFFT code, refer to the provided example script [example.py](example.py). The script demonstrates the step-by-step process of performing the 2D FFT and IFFT on an image, along with additional image processing operations.
 
-Further Customization
-Feel free to modify the example code to suit your specific needs. You can change the input image file, adjust the scaling or normalization techniques, and explore other image processing operations using the FFT and IFFT results.
+## Contributing
 
-References
-If you would like to learn more about the Fast Fourier Transform and its applications in image processing, consider exploring the following resources:
+Contributions to this project are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request. Let's make this code better together!
 
-numpy.fft documentation
-OpenCV documentation
-License
-This code is provided under the MIT License. Feel free to use and modify it for your own purposes.
+## License
+
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this code for personal or commercial purposes.
+
+```
