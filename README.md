@@ -21,7 +21,7 @@ The 2D FFT and IFFT algorithms are fundamental tools in signal processing and ar
 
 Before using this code, ensure that you have the following dependencies installed:
 
-- Python 3.x
+- Python 3.9
 - NumPy
 
 ## Installation
@@ -77,10 +77,6 @@ To use the 2D FFT and IFFT code, follow these steps:
 
 For more advanced usage and customization, you can explore additional image processing operations using the FFT and IFFT results.
 
-## Example
-
-For a detailed example of using the 2D FFT and IFFT code, refer to the provided example script [example.py](example.py). The script demonstrates the step-by-step process of performing the 2D FFT and IFFT on an image, along with additional image processing operations.
-
 ## Contributing
 
 Contributions to this project are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request. Let's make this code better together!
@@ -89,4 +85,4 @@ Contributions to this project are welcome! If you find any issues or have sugges
 
 This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this code for personal or commercial purposes.
 
-```
+
