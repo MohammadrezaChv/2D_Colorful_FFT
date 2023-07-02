@@ -34,18 +34,6 @@ To use this code, follow these steps:
    git clone https://github.com/MohammadrezaChv/2D_Colorful_FFT.git
    ```
 
-2. Navigate to the project directory:
-
-   ```
-   cd 2d-fft-implementation
-   ```
-
-3. Install the required dependencies using pip:
-
-   ```
-   pip install -r requirements.txt
-   ```
-
 ## Usage
 
 To use the 2D FFT and IFFT code, follow these steps:
