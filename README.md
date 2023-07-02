@@ -1,4 +1,4 @@
-```markdown
+
 # 2D Fast Fourier Transform (FFT) and Inverse Fast Fourier Transform (IFFT)
 
 This repository provides an implementation of the 2D FFT and IFFT algorithms for image processing. The code is implemented in Python and utilizes the NumPy library for efficient numerical computations.
